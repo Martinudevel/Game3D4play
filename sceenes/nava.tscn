@@ -1,14 +1,10 @@
-[gd_scene load_steps=19 format=3 uid="uid://b7d5exl7rgppi"]
-
-[ext_resource type="PackedScene" uid="uid://bw4wkoop05gt3" path="res://model/model raw/usa.glb" id="1_yoqg1"]
-[ext_resource type="PackedScene" uid="uid://b6wkwt3bhbqv3" path="res://model/model raw/usa_metal.glb" id="2_k5o44"]
-[ext_resource type="PackedScene" uid="uid://dy0ghwvl1hrxj" path="res://Characters/Default Cap.tscn" id="3_boujg"]
+[gd_scene load_steps=11 format=3 uid="uid://b7d5exl7rgppi"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yk4t2"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_r5u45"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_wh4na"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_s1a0f"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rmcxh"]
 albedo_color = Color(0.304533, 0.260309, 0.235305, 1)
@@ -38,25 +34,12 @@ albedo_color = Color(0.0064667, 0.0064667, 0.0064667, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_leolo"]
 material = SubResource("StandardMaterial3D_uk6ay")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_88n84"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_k312w"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_54daa"]
-
-[sub_resource type="Environment" id="Environment_gwl7c"]
-background_energy_multiplier = 1.95
-ambient_light_color = Color(0.582376, 0.582376, 0.582376, 1)
-ambient_light_energy = 4.61
-tonemap_exposure = 1.15
-ssr_enabled = true
-
-[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_87kiv"]
-
 [node name="Node3D" type="Node3D"]
 
 [node name="Floor-Adonis554" type="StaticBody3D" parent="."]
 transform = Transform3D(100, 0, 0, 0, 50, 0, 0, 0, 1, 0, 0, 0)
+collision_layer = 3
+collision_mask = 3
 physics_material_override = SubResource("PhysicsMaterial_yk4t2")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Floor-Adonis554"]
@@ -64,12 +47,13 @@ mesh = SubResource("BoxMesh_r5u45")
 skeleton = NodePath("../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor-Adonis554"]
-transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
-shape = SubResource("BoxShape3D_wh4na")
+shape = SubResource("BoxShape3D_s1a0f")
 
 [node name="Wall-Commander-Adonis554" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 20, 0, 0, 0, 5, 25, 15, 3)
 rotation_edit_mode = 1
+collision_layer = 3
+collision_mask = 3
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Wall-Commander-Adonis554"]
 mesh = SubResource("BoxMesh_q7cme")
@@ -80,6 +64,8 @@ shape = SubResource("BoxShape3D_abjkv")
 [node name="Wall-Hero-Adonis554" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 20, 0, 0, 0, 5, 0, 15, 3)
 rotation_edit_mode = 1
+collision_layer = 3
+collision_mask = 3
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Wall-Hero-Adonis554"]
 mesh = SubResource("BoxMesh_q7cme")
@@ -90,6 +76,8 @@ shape = SubResource("BoxShape3D_abjkv")
 [node name="Wall-Nav-Adonis554" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 20, 0, 0, 0, 5, -25, 15, 3)
 rotation_edit_mode = 1
+collision_layer = 3
+collision_mask = 3
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Wall-Nav-Adonis554"]
 mesh = SubResource("BoxMesh_q7cme")
@@ -100,6 +88,8 @@ shape = SubResource("BoxShape3D_abjkv")
 [node name="Wall-Nav2-Adonis554" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 20, 0, 0, 0, 5, -25, -15, 3)
 rotation_edit_mode = 1
+collision_layer = 3
+collision_mask = 3
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Wall-Nav2-Adonis554"]
 mesh = SubResource("BoxMesh_q7cme")
@@ -110,6 +100,8 @@ shape = SubResource("BoxShape3D_abjkv")
 [node name="Wall-Deco-Adonis554" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 20, 0, 0, 0, 5, 0, -15, 3)
 rotation_edit_mode = 1
+collision_layer = 3
+collision_mask = 3
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Wall-Deco-Adonis554"]
 mesh = SubResource("BoxMesh_q7cme")
@@ -120,6 +112,8 @@ shape = SubResource("BoxShape3D_abjkv")
 [node name="Wall-Capt-Adonis554" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 20, 0, 0, 0, 5, 25, -15, 3)
 rotation_edit_mode = 1
+collision_layer = 3
+collision_mask = 3
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Wall-Capt-Adonis554"]
 mesh = SubResource("BoxMesh_q7cme")
@@ -130,6 +124,8 @@ shape = SubResource("BoxShape3D_abjkv")
 [node name="Wall-Space-Adonis554" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 50, 0, 0, 0, 5, 50, 0, 3)
 rotation_edit_mode = 1
+collision_layer = 3
+collision_mask = 3
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Wall-Space-Adonis554"]
 mesh = SubResource("BoxMesh_f02hn")
@@ -140,6 +136,8 @@ shape = SubResource("BoxShape3D_abjkv")
 [node name="Wall-Space-Adonis554(1)" type="StaticBody3D" parent="."]
 transform = Transform3D(-0.00100045, -100, 0, 1, -0.100045, 0, 0, 0, 5, 0, 25, 3)
 rotation_edit_mode = 1
+collision_layer = 3
+collision_mask = 3
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Wall-Space-Adonis554(1)"]
 mesh = SubResource("BoxMesh_f02hn")
@@ -150,6 +148,8 @@ shape = SubResource("BoxShape3D_abjkv")
 [node name="Wall-Space-Adonis554(1)2" type="StaticBody3D" parent="."]
 transform = Transform3D(-0.00100045, -100, 0, 1, -0.100045, 0, 0, 0, 5, 0, -25, 3)
 rotation_edit_mode = 1
+collision_layer = 3
+collision_mask = 3
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Wall-Space-Adonis554(1)2"]
 mesh = SubResource("BoxMesh_f02hn")
@@ -160,179 +160,11 @@ shape = SubResource("BoxShape3D_abjkv")
 [node name="Wall-Space-Adonis554(2)" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 50, 0, 0, 0, 5, -50, 0, 3)
 rotation_edit_mode = 1
+collision_layer = 3
+collision_mask = 3
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Wall-Space-Adonis554(2)"]
 mesh = SubResource("BoxMesh_leolo")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Wall-Space-Adonis554(2)"]
 shape = SubResource("BoxShape3D_abjkv")
-
-[node name="Door-Commander-Adonis554" type="StaticBody3D" parent="."]
-transform = Transform3D(0.1, 0, 0, 0, -4.37114e-09, -0.1, 0, 0.1, -4.37114e-09, 10, 6, 0.5)
-rotation_edit_mode = 1
-
-[node name="usa" parent="Door-Commander-Adonis554" instance=ExtResource("1_yoqg1")]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Door-Commander-Adonis554"]
-transform = Transform3D(11500, 0, 0, 0, 5000, -3.63798e-12, 0, 1.45519e-11, 1000, -43.196, 24.1263, 5.25152)
-shape = SubResource("BoxShape3D_88n84")
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="Door-Commander-Adonis554"]
-transform = Transform3D(11500, 0, 0, 0, 5000, -3.63798e-12, 0, 1.45519e-11, 1000, 92.7626, 24.1263, 5.25152)
-shape = SubResource("BoxShape3D_88n84")
-
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="Door-Commander-Adonis554"]
-transform = Transform3D(2000, 0, 0, 0, 2000, -3.63798e-12, 0, 7.27596e-12, 1000, 24.7922, 39.8356, 5.25152)
-shape = SubResource("BoxShape3D_k312w")
-
-[node name="door" type="Node3D" parent="Door-Commander-Adonis554"]
-transform = Transform3D(1, 0, 0, 0, 1, -7.10543e-15, 0, 7.10543e-15, 1, 0, 0, 0)
-
-[node name="usa_metal" parent="Door-Commander-Adonis554/door" instance=ExtResource("2_k5o44")]
-transform = Transform3D(1, 0, 0, 0, 1.5, -2.84217e-14, 0, 6.39488e-14, 1, 23.401, 0.263332, 4.88597)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Door-Commander-Adonis554/door"]
-transform = Transform3D(2500, 0, 0, 0, 4000, -2.91038e-12, 0, 1.16415e-10, 100, 19.3261, 8.80886, 0)
-shape = SubResource("BoxShape3D_54daa")
-
-[node name="Door-Capt-Adonis554" type="StaticBody3D" parent="."]
-transform = Transform3D(0.1, 0, 0, 0, -4.37114e-09, -0.1, 0, 0.1, -4.37114e-09, 10, -6, 0.5)
-rotation_edit_mode = 1
-
-[node name="usa" parent="Door-Capt-Adonis554" instance=ExtResource("1_yoqg1")]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Door-Capt-Adonis554"]
-transform = Transform3D(11500, 0, 0, 0, 5000, -3.63798e-12, 0, 1.45519e-11, 1000, -43.196, 24.1263, 5.25152)
-shape = SubResource("BoxShape3D_88n84")
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="Door-Capt-Adonis554"]
-transform = Transform3D(11500, 0, 0, 0, 5000, -3.63798e-12, 0, 1.45519e-11, 1000, 92.7626, 24.1263, 5.25152)
-shape = SubResource("BoxShape3D_88n84")
-
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="Door-Capt-Adonis554"]
-transform = Transform3D(2000, 0, 0, 0, 2000, -3.63798e-12, 0, 7.27596e-12, 1000, 24.7922, 39.8356, 5.25152)
-shape = SubResource("BoxShape3D_k312w")
-
-[node name="door" type="Node3D" parent="Door-Capt-Adonis554"]
-
-[node name="usa_metal" parent="Door-Capt-Adonis554/door" instance=ExtResource("2_k5o44")]
-transform = Transform3D(1, 0, 0, 0, 1.5, -2.84217e-14, 0, 6.39488e-14, 1, 23.401, 0.263332, 4.88597)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Door-Capt-Adonis554/door"]
-transform = Transform3D(2500, 0, 0, 0, 4000, -2.91038e-12, 0, 1.16415e-10, 100, 19.3261, 8.80886, 0)
-shape = SubResource("BoxShape3D_54daa")
-
-[node name="Door-Deco-Adonis554" type="StaticBody3D" parent="."]
-transform = Transform3D(0.1, 0, 0, 0, -4.37114e-09, -0.1, 0, 0.1, -4.37114e-09, -15, -6, 0.5)
-rotation_edit_mode = 1
-
-[node name="usa" parent="Door-Deco-Adonis554" instance=ExtResource("1_yoqg1")]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Door-Deco-Adonis554"]
-transform = Transform3D(11500, 0, 0, 0, 5000, -3.63798e-12, 0, 1.45519e-11, 1000, -43.196, 24.1263, 5.25152)
-shape = SubResource("BoxShape3D_88n84")
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="Door-Deco-Adonis554"]
-transform = Transform3D(11500, 0, 0, 0, 5000, -3.63798e-12, 0, 1.45519e-11, 1000, 92.7626, 24.1263, 5.25152)
-shape = SubResource("BoxShape3D_88n84")
-
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="Door-Deco-Adonis554"]
-transform = Transform3D(2000, 0, 0, 0, 2000, -3.63798e-12, 0, 7.27596e-12, 1000, 24.7922, 39.8356, 5.25152)
-shape = SubResource("BoxShape3D_k312w")
-
-[node name="door" type="Node3D" parent="Door-Deco-Adonis554"]
-
-[node name="usa_metal" parent="Door-Deco-Adonis554/door" instance=ExtResource("2_k5o44")]
-transform = Transform3D(1, 0, 0, 0, 1.5, -2.84217e-14, 0, 6.39488e-14, 1, 23.401, 0.263332, 4.88597)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Door-Deco-Adonis554/door"]
-transform = Transform3D(2500, 0, 0, 0, 4000, -2.91038e-12, 0, 1.16415e-10, 100, 19.3261, 8.80886, 0)
-shape = SubResource("BoxShape3D_54daa")
-
-[node name="Door-Room2-Adonis554" type="StaticBody3D" parent="."]
-transform = Transform3D(0.1, 0, 0, 0, -4.37114e-09, -0.1, 0, 0.1, -4.37114e-09, 35, -6, 0.5)
-rotation_edit_mode = 1
-
-[node name="usa" parent="Door-Room2-Adonis554" instance=ExtResource("1_yoqg1")]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Door-Room2-Adonis554"]
-transform = Transform3D(11500, 0, 0, 0, 5000, -3.63798e-12, 0, 1.45519e-11, 1000, -43.196, 24.1263, 5.25152)
-shape = SubResource("BoxShape3D_88n84")
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="Door-Room2-Adonis554"]
-transform = Transform3D(11500, 0, 0, 0, 5000, -3.63798e-12, 0, 1.45519e-11, 1000, 92.7626, 24.1263, 5.25152)
-shape = SubResource("BoxShape3D_88n84")
-
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="Door-Room2-Adonis554"]
-transform = Transform3D(2000, 0, 0, 0, 2000, -3.63798e-12, 0, 7.27596e-12, 1000, 24.7922, 39.8356, 5.25152)
-shape = SubResource("BoxShape3D_k312w")
-
-[node name="door" type="Node3D" parent="Door-Room2-Adonis554"]
-
-[node name="usa_metal" parent="Door-Room2-Adonis554/door" instance=ExtResource("2_k5o44")]
-transform = Transform3D(1, 0, 0, 0, 1.5, -2.84217e-14, 0, 6.39488e-14, 1, 23.401, 0.263332, 4.88597)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Door-Room2-Adonis554/door"]
-transform = Transform3D(2500, 0, 0, 0, 4000, -2.91038e-12, 0, 1.16415e-10, 100, 19.3261, 8.80886, 0)
-shape = SubResource("BoxShape3D_54daa")
-
-[node name="Door-Hero-Adonis554" type="StaticBody3D" parent="."]
-transform = Transform3D(0.1, 0, 0, 0, -4.37114e-09, -0.1, 0, 0.1, -4.37114e-09, -15, 6, 0.5)
-rotation_edit_mode = 1
-
-[node name="usa" parent="Door-Hero-Adonis554" instance=ExtResource("1_yoqg1")]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Door-Hero-Adonis554"]
-transform = Transform3D(11500, 0, 0, 0, 5000, -3.63798e-12, 0, 1.45519e-11, 1000, -43.196, 24.1263, 5.25152)
-shape = SubResource("BoxShape3D_88n84")
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="Door-Hero-Adonis554"]
-transform = Transform3D(11500, 0, 0, 0, 5000, -3.63798e-12, 0, 1.45519e-11, 1000, 92.7626, 24.1263, 5.25152)
-shape = SubResource("BoxShape3D_88n84")
-
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="Door-Hero-Adonis554"]
-transform = Transform3D(2000, 0, 0, 0, 2000, -3.63798e-12, 0, 7.27596e-12, 1000, 24.7922, 39.8356, 5.25152)
-shape = SubResource("BoxShape3D_k312w")
-
-[node name="door" type="Node3D" parent="Door-Hero-Adonis554"]
-
-[node name="usa_metal" parent="Door-Hero-Adonis554/door" instance=ExtResource("2_k5o44")]
-transform = Transform3D(1, 0, 0, 0, 1.5, -2.84217e-14, 0, 6.39488e-14, 1, 23.401, 0.263332, 4.88597)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Door-Hero-Adonis554/door"]
-transform = Transform3D(2500, 0, 0, 0, 4000, -2.91038e-12, 0, 1.16415e-10, 100, 19.3261, 8.80886, 0)
-shape = SubResource("BoxShape3D_54daa")
-
-[node name="Door-Room1-Adonis554" type="StaticBody3D" parent="."]
-transform = Transform3D(0.1, 0, 0, 0, -4.37114e-09, -0.1, 0, 0.1, -4.37114e-09, 35, 6, 0.5)
-rotation_edit_mode = 1
-
-[node name="usa" parent="Door-Room1-Adonis554" instance=ExtResource("1_yoqg1")]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Door-Room1-Adonis554"]
-transform = Transform3D(11500, 0, 0, 0, 5000, -3.63798e-12, 0, 1.45519e-11, 1000, -43.196, 24.1263, 5.25152)
-shape = SubResource("BoxShape3D_88n84")
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="Door-Room1-Adonis554"]
-transform = Transform3D(11500, 0, 0, 0, 5000, -3.63798e-12, 0, 1.45519e-11, 1000, 92.7626, 24.1263, 5.25152)
-shape = SubResource("BoxShape3D_88n84")
-
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="Door-Room1-Adonis554"]
-transform = Transform3D(2000, 0, 0, 0, 2000, -3.63798e-12, 0, 7.27596e-12, 1000, 24.7922, 39.8356, 5.25152)
-shape = SubResource("BoxShape3D_k312w")
-
-[node name="door" type="Node3D" parent="Door-Room1-Adonis554"]
-
-[node name="usa_metal" parent="Door-Room1-Adonis554/door" instance=ExtResource("2_k5o44")]
-transform = Transform3D(1, 0, 0, 0, 1.5, -2.84217e-14, 0, 6.39488e-14, 1, 23.401, 0.263332, 4.88597)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Door-Room1-Adonis554/door"]
-transform = Transform3D(2500, 0, 0, 0, 4000, -2.91038e-12, 0, 1.16415e-10, 100, 19.3261, 8.80886, 0)
-shape = SubResource("BoxShape3D_54daa")
-
-[node name="untitled" parent="." instance=ExtResource("3_boujg")]
-transform = Transform3D(-0.998326, -0.00488269, 0.0576329, 0.0577522, -0.0294685, 0.997896, -0.00317405, 0.999554, 0.0297011, -11.8973, 0, 2.28513)
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_gwl7c")
-camera_attributes = SubResource("CameraAttributesPractical_87kiv")

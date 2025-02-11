@@ -54,12 +54,12 @@ height = 1.74431
 radius = 0.287625
 
 [node name="untitled" instance=ExtResource("1_km2lx")]
-transform = Transform3D(-0.992204, 0.00293392, 0.124589, 0.124423, -0.0333559, 0.991668, 0.00706524, 0.999439, 0.0327308, 0, 0, 0.0210873)
+transform = Transform3D(-0.992204, 0.00293392, 0.124589, 0.124423, -0.0333559, 0.991668, 0.00706524, 0.999439, 0.0327308, 0, 0, 0)
 up_direction = Vector3(0, 0, 1)
 script = ExtResource("2_vfxlh")
 
 [node name="Armature" parent="." index="0"]
-transform = Transform3D(0.995912, -0.0525523, -0.0734611, 0.0514388, 0.998531, -0.0169694, 0.074245, 0.0131213, 0.997154, 0.0929149, -0.0525561, 0.0178407)
+transform = Transform3D(0.995912, -0.0525524, -0.0734611, 0.0514389, 0.998531, -0.0169694, 0.074245, 0.0131213, 0.997154, 0.0929149, -0.0525561, 0.0178407)
 
 [node name="Skeleton3D" parent="Armature" index="0"]
 bones/2/rotation = Quaternion(0.024135, 0.0123622, -0.00122751, 0.999632)
@@ -146,3 +146,7 @@ libraries = {
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="2"]
 transform = Transform3D(1, -2.98023e-08, 0, 2.98023e-08, 1, 0, 0, 0, 1, 0, 0.923054, 2.98023e-08)
 shape = SubResource("CylinderShape3D_15n65")
+
+[node name="RayCast3D" type="RayCast3D" parent="." index="3"]
+target_position = Vector3(0, -1.5, 0)
+collision_mask = 2
