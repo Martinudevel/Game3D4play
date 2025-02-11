@@ -54,10 +54,12 @@ height = 1.74431
 radius = 0.287625
 
 [node name="untitled" instance=ExtResource("1_km2lx")]
+transform = Transform3D(-0.992204, 0.00293392, 0.124589, 0.124423, -0.0333559, 0.991668, 0.00706524, 0.999439, 0.0327308, 0, 0, 0.0210873)
+up_direction = Vector3(0, 0, 1)
 script = ExtResource("2_vfxlh")
 
 [node name="Armature" parent="." index="0"]
-transform = Transform3D(0.995912, -0.0525521, -0.073461, 0.0514386, 0.998531, -0.0169694, 0.0742449, 0.0131213, 0.997154, 0.0929149, -0.0525561, 0.0178407)
+transform = Transform3D(0.995912, -0.0525523, -0.0734611, 0.0514388, 0.998531, -0.0169694, 0.074245, 0.0131213, 0.997154, 0.0929149, -0.0525561, 0.0178407)
 
 [node name="Skeleton3D" parent="Armature" index="0"]
 bones/2/rotation = Quaternion(0.024135, 0.0123622, -0.00122751, 0.999632)
@@ -126,15 +128,12 @@ bones/199/rotation = Quaternion(-0.0638887, 0.741532, 0.664719, -0.0647837)
 bones/200/rotation = Quaternion(-0.385531, -0.0316255, -0.00646169, 0.92213)
 
 [node name="cam" type="Node3D" parent="Armature/Skeleton3D/Body" index="0"]
-transform = Transform3D(0.00460185, 0.000693204, -0.999989, 0.0724946, 0.997368, 0.00102496, 0.997358, -0.0724985, 0.00453947, 0.12937, -0.0100425, -0.00908455)
+transform = Transform3D(0.00460186, 0.000693206, -0.999989, 0.0724946, 0.997368, 0.00102497, 0.997358, -0.0724985, 0.00453946, 0, 1.642, 0.016)
 
-[node name="SubViewport" type="SubViewport" parent="Armature/Skeleton3D/Body/cam" index="0"]
-size_2d_override_stretch = true
-
-[node name="Camera3D" type="Camera3D" parent="Armature/Skeleton3D/Body/cam/SubViewport" index="0"]
-transform = Transform3D(-0.979257, -0.0482037, 0.196805, -0.103345, 0.954278, -0.280487, -0.174286, -0.295008, -0.939465, -0.0658248, 1.56605, 0.269699)
+[node name="Camera3D" type="Camera3D" parent="Armature/Skeleton3D/Body/cam" index="0"]
+transform = Transform3D(-0.108323, -0.237125, -0.965421, -0.0473077, 0.971266, -0.233252, 0.99299, 0.0204054, -0.116428, 0.362, 0, 0)
 rotation_edit_mode = 1
-visibility_parent = NodePath("../../..")
+visibility_parent = NodePath("../..")
 current = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
