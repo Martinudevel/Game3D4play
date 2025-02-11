@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://cr0vuouwnsmtg"]
+
+[ext_resource type="PackedScene" uid="uid://bw4wkoop05gt3" path="res://model/model raw/usa.glb" id="1_6vyf7"]
+
+[node name="usa" instance=ExtResource("1_6vyf7")]

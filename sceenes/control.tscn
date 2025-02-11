@@ -1,0 +1,59 @@
+[gd_scene load_steps=2 format=3 uid="uid://dlmu5jdcekse5"]
+
+[ext_resource type="Script" path="res://control.gd" id="1_yiriq"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = -3.0
+offset_right = -4.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yiriq")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 481.0
+offset_top = 110.0
+offset_right = 727.0
+offset_bottom = 180.0
+theme_override_font_sizes/normal_font_size = 35
+text = "COOL GAME"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 964.0
+offset_top = 329.0
+offset_right = 1158.0
+offset_bottom = 392.0
+text = "Play"
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 960.0
+offset_top = 407.0
+offset_right = 1154.0
+offset_bottom = 470.0
+text = "Option"
+
+[node name="Button3" type="Button" parent="."]
+layout_mode = 0
+offset_left = 960.0
+offset_top = 496.0
+offset_right = 1154.0
+offset_bottom = 559.0
+text = "Extras"
+
+[node name="Button4" type="Button" parent="."]
+layout_mode = 0
+offset_left = 960.0
+offset_top = 581.0
+offset_right = 1154.0
+offset_bottom = 644.0
+text = "Quit"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

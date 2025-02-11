@@ -1,0 +1,38 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://drn8vgevbr1if"
+path.s3tc="res://.godot/imported/untitled__03.png-3d13dec10748972cb4ac635d16670ffe.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "a0a8ffccb0d946c73e512bfb5a1968af"
+}
+
+[deps]
+
+source_file="res://model/model game/untitled__03.png"
+dest_files=["res://.godot/imported/untitled__03.png-3d13dec10748972cb4ac635d16670ffe.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0
