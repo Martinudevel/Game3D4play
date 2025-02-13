@@ -1,15 +1,28 @@
-[gd_scene load_steps=3 format=3 uid="uid://dheu0g5g8w10q"]
+[gd_scene load_steps=6 format=3 uid="uid://dheu0g5g8w10q"]
 
-[ext_resource type="PackedScene" uid="uid://b7d5exl7rgppi" path="res://sceenes/nava.tscn" id="1_etmpd"]
+[ext_resource type="PackedScene" uid="uid://yhyfywp8pcxb" path="res://nava.tscn" id="2_g3kgc"]
 [ext_resource type="PackedScene" uid="uid://dy0ghwvl1hrxj" path="res://Characters/Default Cap.tscn" id="2_kg6jn"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_infxf"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_33vmp"]
+sky_material = SubResource("ProceduralSkyMaterial_infxf")
+
+[sub_resource type="Environment" id="Environment_oh0xp"]
+background_mode = 2
+sky = SubResource("Sky_33vmp")
+tonemap_mode = 2
+glow_enabled = true
 
 [node name="Node3D" type="Node3D"]
 
-[node name="Node3D" parent="." instance=ExtResource("1_etmpd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 100)
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_oh0xp")
+
+[node name="nava" parent="." instance=ExtResource("2_g3kgc")]
 
 [node name="untitled" parent="." instance=ExtResource("2_kg6jn")]
-transform = Transform3D(-0.992204, 0.00293392, 0.124589, 0.124423, -0.0333559, 0.991668, 0.00706524, 0.999439, 0.0327308, 0, 0, 101)
-slide_on_ceiling = false
-wall_min_slide_angle = 0.785398
-floor_max_angle = 0.261799
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 60.0064, 0)
+up_direction = Vector3(0, 1, 0)
