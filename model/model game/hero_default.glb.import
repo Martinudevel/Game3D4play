@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/hero_default.glb-2541d5817d81e28009ec7ca3d97b
 
 [params]
 
-nodes/root_type=""
+nodes/root_type="CharacterBody3D"
 nodes/root_name=""
 nodes/apply_root_scale=true
 nodes/root_scale=1.0

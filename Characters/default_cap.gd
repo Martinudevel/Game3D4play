@@ -16,13 +16,15 @@ var direction: Vector3 = Vector3.ZERO
 @export var gravity: float = 20.0
 @export var max_fall_speed: float = 50.0
 var run=false
-
+var new=true
 # Internal variables
 var yaw: float = 0.0
 var pitch: float = 0.0
 func _ready():
 	# Capture the mouse
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	self.transform.origin=Vector3(0,60.006,0)
+	self.scale=Vector3(10,10,10)
 
 func _input(event):
 	# Handle mouse movement for camera rotation
@@ -85,7 +87,7 @@ func _process(delta):
 	velocity.z = direction.z * speed
 
 	# Apply gravity
-	if not is_on_floor():
+	if not is_on_floor() and not new:
 		velocity.y -= gravity * delta
 	else:
 		velocity.y = 0
@@ -112,3 +114,7 @@ func _unhandled_input(event):
 	if event is InputEventKey and event.pressed:
 		if event.keycode == KEY_ESCAPE:
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
+
+func _on_timer_timeout() -> void:
+	new=false

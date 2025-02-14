@@ -1,0 +1,165 @@
+[gd_scene load_steps=8 format=3 uid="uid://b6nyuhlx2vxso"]
+
+[ext_resource type="PackedScene" uid="uid://nnnxi8dmv4mq" path="res://model/model game/deco_default.glb" id="1_a5hbf"]
+[ext_resource type="Script" path="res://Characters/default_cap.gd" id="2_5q4dx"]
+[ext_resource type="AnimationLibrary" uid="uid://eam7f3xqeths" path="res://model/model game/Animation_library.glb" id="2_echff"]
+[ext_resource type="AnimationLibrary" uid="uid://b8jr2s8085i5h" path="res://model/model game/IDLE_Anim.glb" id="3_q5did"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_wq1ry"]
+height = 1.74431
+radius = 0.287625
+
+[sub_resource type="Animation" id="Animation_yrxjo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollisionShape3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.923054, 2.98023e-08)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 2.98023e-08)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CollisionShape3D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("cam/Camera3D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.362, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_refyc"]
+_data = {
+"RESET": SubResource("Animation_yrxjo")
+}
+
+[node name="deco_default" instance=ExtResource("1_a5hbf")]
+script = ExtResource("2_5q4dx")
+
+[node name="Armature" parent="." index="0"]
+transform = Transform3D(0.996185, 0.03043, -0.0817858, -0.0225927, 0.995211, 0.0950996, 0.084288, -0.0928891, 0.992102, -0.0280863, 0.00641281, 0.0827432)
+
+[node name="Skeleton3D" parent="Armature" index="0"]
+bones/52/rotation = Quaternion(0.0332576, 0.00240221, 0.00614844, 0.999425)
+bones/53/rotation = Quaternion(-0.0955524, 0.00335023, 0.0111, 0.995357)
+bones/54/rotation = Quaternion(-0.0671913, 0.000559752, 0.011581, 0.997673)
+bones/61/rotation = Quaternion(0.171516, 0.00047736, -0.00108608, 0.985181)
+bones/62/rotation = Quaternion(-0.11063, 0.000281557, -0.00115245, 0.993861)
+bones/65/rotation = Quaternion(0.0102146, 0.10147, 0.989785, -0.0996247)
+bones/69/rotation = Quaternion(0.0040648, 0.0145818, 0.96311, -0.268681)
+bones/77/rotation = Quaternion(-0.000103231, -0.00128218, 0.996757, -0.080456)
+bones/85/rotation = Quaternion(0.00262097, 0.0693128, 0.996878, -0.0377251)
+bones/93/rotation = Quaternion(5.05115e-05, 0.0121109, 0.999918, -0.00418627)
+bones/103/rotation = Quaternion(0.120811, 0.254893, -0.747877, 0.600928)
+bones/104/rotation = Quaternion(0.239465, 0.202105, -0.488686, 0.814246)
+bones/105/rotation = Quaternion(0.240972, 9.46637e-07, -5.4652e-08, 0.970532)
+bones/106/rotation = Quaternion(-0.124058, -0.168067, 0.0689063, 0.975508)
+bones/107/rotation = Quaternion(-0.0254915, -0.0010117, -0.275671, 0.960913)
+bones/108/rotation = Quaternion(-0.00260463, 0.0285148, -0.282281, 0.958904)
+bones/109/rotation = Quaternion(-3.08206e-07, -6.05144e-07, -2.5583e-06, 1)
+bones/110/rotation = Quaternion(0.0513021, -0.0471018, -0.329319, 0.941647)
+bones/111/rotation = Quaternion(0.0668778, -0.0103252, -0.582852, 0.809756)
+bones/112/rotation = Quaternion(6.54261e-07, -1.13359e-06, -3.42309e-08, 1)
+bones/113/rotation = Quaternion(0.00149135, -0.0153932, -0.27911, 0.960135)
+bones/114/rotation = Quaternion(0.024486, -0.00181163, -0.404193, 0.914344)
+bones/115/rotation = Quaternion(1.13521e-07, 4.71309e-06, 4.70215e-06, 1)
+bones/116/rotation = Quaternion(0.048357, -0.0418011, -0.280085, 0.957845)
+bones/117/rotation = Quaternion(0.0521043, -0.0207679, -0.548601, 0.834201)
+bones/118/rotation = Quaternion(-4.42592e-07, 5.86961e-06, 5.28684e-06, 1)
+bones/119/rotation = Quaternion(0.204242, 0.807231, -0.00578874, 0.553741)
+bones/120/rotation = Quaternion(-0.00574133, -0.0348404, -0.0359963, 0.998728)
+bones/121/rotation = Quaternion(-1.71935e-06, 0.000374213, -1.08067e-06, 1)
+bones/130/rotation = Quaternion(0.229551, -0.151584, 0.730722, 0.624799)
+bones/131/rotation = Quaternion(0.161288, -0.0790044, 0.518627, 0.835925)
+bones/132/rotation = Quaternion(0.269901, -8.31618e-07, -2.39411e-07, 0.962888)
+bones/133/rotation = Quaternion(-0.135412, -0.0467064, -0.0576514, 0.988007)
+bones/134/rotation = Quaternion(-0.0413033, 0.0222617, 0.176137, 0.983247)
+bones/135/rotation = Quaternion(-0.00967127, -0.0276621, 0.345858, 0.937829)
+bones/136/rotation = Quaternion(4.43199e-08, -1.47203e-05, -1.32975e-05, 1)
+bones/137/rotation = Quaternion(0.0309639, 0.0337725, 0.360332, 0.931698)
+bones/138/rotation = Quaternion(0.10073, 0.0228303, 0.532491, 0.84011)
+bones/139/rotation = Quaternion(-1.16746e-07, 7.21221e-06, 6.07688e-06, 1)
+bones/140/rotation = Quaternion(-0.0148267, 0.0264359, 0.287301, 0.957361)
+bones/141/rotation = Quaternion(-0.0763114, 0.165335, 0.429917, 0.884315)
+bones/142/rotation = Quaternion(4.25259e-08, -1.49011e-08, 7.45068e-09, 1)
+bones/143/rotation = Quaternion(0.0247757, 0.00654632, 0.315394, 0.948615)
+bones/144/rotation = Quaternion(0.0566951, 0.0202325, 0.43591, 0.897975)
+bones/145/rotation = Quaternion(-4.0981e-07, -4.47915e-07, -4.89297e-08, 1)
+bones/146/rotation = Quaternion(0.287954, -0.773804, -0.0559961, 0.561404)
+bones/147/rotation = Quaternion(-0.00971456, 0.0343467, 0.0448355, 0.998357)
+bones/148/rotation = Quaternion(-1.22608e-07, -0.000370393, -2.21463e-07, 1)
+bones/161/rotation = Quaternion(0.119595, 0.0803464, 0.989564, -0.00225851)
+bones/161/scale = Vector3(0.999998, 0.999999, 1.00003)
+bones/212/rotation = Quaternion(-0.0782907, 0.000250788, -0.00221922, 0.996928)
+bones/213/rotation = Quaternion(-0.0687556, 0.985732, -0.0422805, -0.147706)
+bones/223/rotation = Quaternion(-0.0687556, 0.985732, -0.0422805, -0.147706)
+bones/233/rotation = Quaternion(-0.016599, 0.697634, 0.716227, -0.00715513)
+bones/234/rotation = Quaternion(0.002193, 0.000549395, 0.000224461, 0.999997)
+bones/238/rotation = Quaternion(-0.0364034, 0.0739049, 0.996601, 0.000160782)
+bones/238/scale = Vector3(1, 0.999999, 1.00003)
+bones/289/rotation = Quaternion(-0.131352, 0.000219032, 0.00374044, 0.991329)
+bones/310/rotation = Quaternion(0.0858015, 0.650586, 0.746653, -0.109019)
+bones/311/rotation = Quaternion(0.00198165, 0.00391208, 0.00160147, 0.999989)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
+transform = Transform3D(1, -2.98023e-08, 0, 2.98023e-08, 1, 0, 0, 0, 1, 0, 0.923054, 2.98023e-08)
+shape = SubResource("CylinderShape3D_wq1ry")
+
+[node name="RayCast3D" type="RayCast3D" parent="." index="2"]
+transform = Transform3D(1, 0, 4.80213e-10, -9.31323e-10, 1, 0, 7.27596e-11, -7.45058e-09, 1, 0.00956296, 1.35276, 0.0443018)
+target_position = Vector3(0, 0, 1)
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="cam" type="Node3D" parent="." index="3"]
+transform = Transform3D(0.00460186, 0.000693205, -0.999988, 0.0724945, 0.997367, 0.00102497, 0.997358, -0.0724985, 0.00453945, 0.093, 1.642, 0.016)
+
+[node name="Camera3D" type="Camera3D" parent="cam" index="0"]
+transform = Transform3D(-0.108323, -0.237125, -0.965421, -0.0473077, 0.971266, -0.233252, 0.99299, 0.0204054, -0.116428, 0.362, 0, 0)
+rotation_edit_mode = 1
+visibility_parent = NodePath("../../Armature/Skeleton3D/Body")
+current = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="4"]
+libraries = {
+"": SubResource("AnimationLibrary_refyc"),
+"Animation_library": ExtResource("2_echff"),
+"IDLE_Anim": ExtResource("3_q5did")
+}
+
+[node name="Timer" type="Timer" parent="." index="5"]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

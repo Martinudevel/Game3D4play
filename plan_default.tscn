@@ -1,0 +1,100 @@
+[gd_scene load_steps=8 format=3 uid="uid://nffr1wpq7xrw"]
+
+[ext_resource type="PackedScene" uid="uid://pcbnolo4op42" path="res://model/model game/plan_default.glb" id="1_xt1jk"]
+[ext_resource type="Script" path="res://Characters/default_cap.gd" id="2_b8a5l"]
+[ext_resource type="AnimationLibrary" uid="uid://eam7f3xqeths" path="res://model/model game/Animation_library.glb" id="3_xnngc"]
+[ext_resource type="AnimationLibrary" uid="uid://b8jr2s8085i5h" path="res://model/model game/IDLE_Anim.glb" id="4_bnaic"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ov227"]
+height = 1.74431
+radius = 0.287625
+
+[sub_resource type="Animation" id="Animation_yrxjo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollisionShape3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.923054, 2.98023e-08)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 2.98023e-08)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CollisionShape3D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("cam/Camera3D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.362, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_refyc"]
+_data = {
+"RESET": SubResource("Animation_yrxjo")
+}
+
+[node name="plan_default" instance=ExtResource("1_xt1jk")]
+script = ExtResource("2_b8a5l")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
+transform = Transform3D(1, -2.98023e-08, 0, 2.98023e-08, 1, 0, 0, 0, 1, 0, 0.923054, 2.98023e-08)
+shape = SubResource("CylinderShape3D_ov227")
+
+[node name="RayCast3D" type="RayCast3D" parent="." index="2"]
+transform = Transform3D(1, 0, 4.80213e-10, -9.31323e-10, 1, 0, 7.27596e-11, -7.45058e-09, 1, 0.00956296, 1.35276, 0.0443018)
+target_position = Vector3(0, 0, 1)
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="cam" type="Node3D" parent="." index="3"]
+transform = Transform3D(0.00460186, 0.000693205, -0.999988, 0.0724945, 0.997367, 0.00102497, 0.997358, -0.0724985, 0.00453945, 0.093, 1.642, 0.016)
+
+[node name="Camera3D" type="Camera3D" parent="cam" index="0"]
+transform = Transform3D(-0.108323, -0.237125, -0.965421, -0.0473077, 0.971266, -0.233252, 0.99299, 0.0204054, -0.116428, 0.362, 0, 0)
+rotation_edit_mode = 1
+visibility_parent = NodePath("../../Armature/Skeleton3D/Body")
+current = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="4"]
+libraries = {
+"": SubResource("AnimationLibrary_refyc"),
+"Animation_library": ExtResource("3_xnngc"),
+"IDLE_Anim": ExtResource("4_bnaic")
+}
+
+[node name="Timer" type="Timer" parent="." index="5"]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

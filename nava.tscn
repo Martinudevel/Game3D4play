@@ -151,12 +151,15 @@ door = NodePath("../../usa_metal6")
 
 [node name="capsula2" parent="." index="22" instance=ExtResource("7_a8c3j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 249.145, 18.8185, 195.24)
+type = "Hero"
 
 [node name="capsula3" parent="." index="23" instance=ExtResource("7_a8c3j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.0064, 17.5705, 205.137)
+type = "Deco"
 
 [node name="capsula4" parent="." index="24" instance=ExtResource("7_a8c3j")]
 transform = Transform3D(-0.88804, 0, 0.459766, 0, 1, 0, -0.459766, 0, -0.88804, 87.7841, 19.9971, -200.542)
 
 [node name="capsula5" parent="." index="25" instance=ExtResource("7_a8c3j")]
 transform = Transform3D(-0.817517, 0, 0.575904, 0, 1, 0, -0.575904, 0, -0.817517, -134.272, 19.9971, -205.236)
+type = "Plan"
