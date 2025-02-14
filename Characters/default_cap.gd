@@ -100,6 +100,11 @@ func _process(delta):
 
 	# Move the player using KinematicBody's move_and_slide function
 	move_and_slide()
+	
+	if Input.is_action_just_pressed("e"):
+		if raycast.get_collider():
+			raycast.get_collider().interact()
+		$AnimationPlayer.play("Animation_library/button push")
 		
 
 func _unhandled_input(event):

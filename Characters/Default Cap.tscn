@@ -68,9 +68,11 @@ radius = 0.287625
 [node name="untitled" instance=ExtResource("1_km2lx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 script = ExtResource("2_vfxlh")
+jump_force = 50.0
+gravity = 100.0
 
 [node name="Armature" parent="." index="0"]
-transform = Transform3D(0.730108, 0.0515856, -0.681382, 0.00189876, 0.996989, 0.077514, 0.683329, -0.0578873, 0.727812, -0.0527296, -0.066243, 0.0501441)
+transform = Transform3D(0.730108, 0.0515857, -0.681382, 0.00189879, 0.996989, 0.0775141, 0.683329, -0.0578874, 0.727812, -0.0527296, -0.066243, 0.0501441)
 
 [node name="Skeleton3D" parent="Armature" index="0"]
 bones/2/rotation = Quaternion(0.0631813, 0.0386882, -0.0139474, 0.997154)
@@ -152,7 +154,8 @@ shape = SubResource("CylinderShape3D_15n65")
 [node name="RayCast3D" type="RayCast3D" parent="." index="3"]
 transform = Transform3D(1, 0, 4.80213e-10, -9.31323e-10, 1, 0, 7.27596e-11, -7.45058e-09, 1, 0.00956296, 1.35276, 0.0443018)
 target_position = Vector3(0, 0, 1)
-collision_mask = 2
+collide_with_areas = true
+collide_with_bodies = false
 
 [node name="cam" type="Node3D" parent="." index="4"]
 transform = Transform3D(0.00460186, 0.000693205, -0.999988, 0.0724945, 0.997367, 0.00102497, 0.997358, -0.0724985, 0.00453945, 0.093, 1.642, 0.016)

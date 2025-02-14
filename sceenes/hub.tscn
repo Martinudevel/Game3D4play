@@ -25,4 +25,3 @@ environment = SubResource("Environment_oh0xp")
 
 [node name="untitled" parent="." instance=ExtResource("2_kg6jn")]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 60.0064, 0)
-up_direction = Vector3(0, 1, 0)
