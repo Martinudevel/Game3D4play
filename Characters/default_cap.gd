@@ -9,7 +9,7 @@ var direction: Vector3 = Vector3.ZERO
 # Camera nodes
 
 @onready var camera: Camera3D = $cam/Camera3D
-var Pause=false
+@export var Pause=false
 # Movement settings
 @export var speed: float = 5.0
 @export var jump_force: float = 10.0
