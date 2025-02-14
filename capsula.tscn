@@ -25,7 +25,7 @@ material_override = SubResource("StandardMaterial3D_0tplc")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="capsula/StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_n1n0n")
 
-[node name="Area3D" type="Area3D" parent="." index="1"]
+[node name="Area3D" type="Area3D" parent="." index="1" groups=["name"]]
 script = ExtResource("3_j85yj")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]

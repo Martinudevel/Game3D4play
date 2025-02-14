@@ -15,6 +15,7 @@ var direction: Vector3 = Vector3.ZERO
 @export var jump_force: float = 10.0
 @export var gravity: float = 20.0
 @export var max_fall_speed: float = 50.0
+
 var run=false
 
 var new=true
@@ -22,7 +23,7 @@ var new=true
 var yaw: float = 0.0
 var pitch: float = 0.0
 func _ready():
-	# Capture the mouse
+
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	self.transform.origin=Vector3(0,60.006,0)
 	self.scale=Vector3(10,10,10)
@@ -106,7 +107,10 @@ func _process(delta):
 	
 	if Input.is_action_just_pressed("e"):
 		if raycast.get_collider():
-			raycast.get_collider().interact()
+			if raycast.get_collider().is_in_group("name"):
+				raycast.get_collider().interact($"../".name)
+			else:
+				raycast.get_collider().interact()
 		$AnimationPlayer.play("Animation_library/button push")
 		
 

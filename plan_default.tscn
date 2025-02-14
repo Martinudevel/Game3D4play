@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://nffr1wpq7xrw"]
+[gd_scene load_steps=9 format=3 uid="uid://nffr1wpq7xrw"]
 
 [ext_resource type="PackedScene" uid="uid://pcbnolo4op42" path="res://model/model game/plan_default.glb" id="1_xt1jk"]
 [ext_resource type="Script" path="res://Characters/default_cap.gd" id="2_b8a5l"]
@@ -65,7 +65,12 @@ _data = {
 "RESET": SubResource("Animation_yrxjo")
 }
 
-[node name="plan_default" instance=ExtResource("1_xt1jk")]
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_5txt5"]
+properties/0/path = NodePath("AnimationPlayer:current_animation")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+
+[node name="untitled" instance=ExtResource("1_xt1jk")]
 script = ExtResource("2_b8a5l")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
@@ -96,5 +101,8 @@ libraries = {
 
 [node name="Timer" type="Timer" parent="." index="5"]
 autostart = true
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." index="6"]
+replication_config = SubResource("SceneReplicationConfig_5txt5")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

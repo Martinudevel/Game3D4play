@@ -1,11 +1,13 @@
 extends Node3D
+@onready var spawner=$spawner
+@onready var player=preload("res://player.tscn").instantiate()
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	$untitled.position=Vector3(3,3,5)
-
-
-# Called every frame. 'delta' is the elawpsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+@rpc("any_peer")
+func add_player(player_id):
+	print("🎮 Adding player:", player_id)
+	var player = preload("res://Player.tscn").instantiate()
+	player.name = str(player_id)  # Name it by player ID
+	spawner.add_child(player)
+func  remove_player(id):
+	if spawner.has_node(str(id)):
+		spawner.get_node(str(id)).queue_free()  # Remove player

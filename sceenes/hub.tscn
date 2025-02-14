@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://dheu0g5g8w10q"]
+[gd_scene load_steps=12 format=3 uid="uid://dheu0g5g8w10q"]
 
+[ext_resource type="Script" path="res://sceenes/hub.gd" id="1_iwpo1"]
 [ext_resource type="PackedScene" uid="uid://yhyfywp8pcxb" path="res://nava.tscn" id="2_g3kgc"]
-[ext_resource type="PackedScene" uid="uid://dy0ghwvl1hrxj" path="res://Characters/Default Cap.tscn" id="2_kg6jn"]
 [ext_resource type="Shader" path="res://sceenes/hub.gdshader" id="3_umh6x"]
+[ext_resource type="PackedScene" uid="uid://ck0rhl7iufkds" path="res://sceenes/spawner.tscn" id="4_nepnd"]
 [ext_resource type="Script" path="res://sceenes/mirror.gd" id="4_wf6sk"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_infxf"]
@@ -30,16 +31,12 @@ shader_parameter/refl_tx = SubResource("ViewportTexture_gajsv")
 [sub_resource type="BoxMesh" id="BoxMesh_ad2ii"]
 
 [node name="Node3D" type="Node3D"]
+script = ExtResource("1_iwpo1")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_oh0xp")
 
 [node name="nava" parent="." instance=ExtResource("2_g3kgc")]
-
-[node name="Player" type="Node3D" parent="."]
-
-[node name="untitled" parent="Player" instance=ExtResource("2_kg6jn")]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 60.0064, 0)
 
 [node name="mirror" type="MeshInstance3D" parent="."]
 transform = Transform3D(10, 0, 0, 0, 100, 0, 0, 0, 200, -368.224, 74.576, -5.3853)
@@ -55,3 +52,5 @@ current = true
 
 [node name="dummy_cam" type="Node3D" parent="mirror"]
 transform = Transform3D(0.1, 0, 0, 0, 0.01, 0, 0, 0, 0.005, 36.8224, -0.74576, 0.0269265)
+
+[node name="spawner" parent="." instance=ExtResource("4_nepnd")]

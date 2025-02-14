@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b6nyuhlx2vxso"]
+[gd_scene load_steps=9 format=3 uid="uid://b6nyuhlx2vxso"]
 
 [ext_resource type="PackedScene" uid="uid://nnnxi8dmv4mq" path="res://model/model game/deco_default.glb" id="1_a5hbf"]
 [ext_resource type="Script" path="res://Characters/default_cap.gd" id="2_5q4dx"]
@@ -65,7 +65,12 @@ _data = {
 "RESET": SubResource("Animation_yrxjo")
 }
 
-[node name="deco_default" instance=ExtResource("1_a5hbf")]
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_1kogs"]
+properties/0/path = NodePath("AnimationPlayer:current_animation")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+
+[node name="untitled" instance=ExtResource("1_a5hbf")]
 script = ExtResource("2_5q4dx")
 
 [node name="Armature" parent="." index="0"]
@@ -161,5 +166,8 @@ libraries = {
 
 [node name="Timer" type="Timer" parent="." index="5"]
 autostart = true
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." index="6"]
+replication_config = SubResource("SceneReplicationConfig_1kogs")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
