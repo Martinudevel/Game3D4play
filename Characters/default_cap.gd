@@ -17,6 +17,7 @@ var direction: Vector3 = Vector3.ZERO
 @export var max_fall_speed: float = 50.0
 var run=false
 
+
 # Internal variables
 var yaw: float = 0.0
 var pitch: float = 0.0
@@ -106,6 +107,7 @@ func _process(delta):
 			raycast.get_collider().interact()
 		$AnimationPlayer.play("Animation_library/button push")
 		
+
 
 func _unhandled_input(event):
 	# Allow the player to exit mouse capture
