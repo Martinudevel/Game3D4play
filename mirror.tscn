@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://c8xokdjiklowr"]
+
+[ext_resource type="Shader" path="res://sceenes/hub.gdshader" id="1_et0g0"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_jiubd"]
+viewport_path = NodePath("mirror/SubViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p74es"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("1_et0g0")
+shader_parameter/refl_tx = SubResource("ViewportTexture_jiubd")
+
+[sub_resource type="BoxMesh" id="BoxMesh_5ycho"]
+
+[node name="mirror" type="Node3D"]
+
+[node name="mirror" type="MeshInstance3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 100, 0, 0, 0, 200, -368.224, 74.576, 0)
+material_override = SubResource("ShaderMaterial_p74es")
+mesh = SubResource("BoxMesh_5ycho")
+
+[node name="SubViewport" type="SubViewport" parent="mirror"]
+
+[node name="Camera3D" type="Camera3D" parent="mirror/SubViewport"]
+transform = Transform3D(0.0349363, 0, -0.99939, 0, 1, 0, 0.99939, 0, 0.0349363, -353.786, 55.0091, 0)
+current = true
