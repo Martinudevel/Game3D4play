@@ -9,7 +9,7 @@ var direction: Vector3 = Vector3.ZERO
 # Camera nodes
 
 @onready var camera: Camera3D = $cam/Camera3D
-
+var Pause=false
 # Movement settings
 @export var speed: float = 5.0
 @export var jump_force: float = 10.0
@@ -115,7 +115,12 @@ func _unhandled_input(event):
 	# Allow the player to exit mouse capture
 	if event is InputEventKey and event.pressed:
 		if event.keycode == KEY_ESCAPE:
-			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+			if Pause:
+				Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+			if not Pause:
+				Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+			$"Pause Menu".visible=not $"Pause Menu".visible
+			Pause=not Pause
 
 
 func _on_timer_timeout() -> void:

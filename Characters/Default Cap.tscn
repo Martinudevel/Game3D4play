@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://dy0ghwvl1hrxj"]
+[gd_scene load_steps=9 format=3 uid="uid://dy0ghwvl1hrxj"]
 
 [ext_resource type="PackedScene" uid="uid://u7pokcwsvevb" path="res://model/model game/untitled.glb" id="1_km2lx"]
 [ext_resource type="AnimationLibrary" uid="uid://eam7f3xqeths" path="res://model/model game/Animation_library.glb" id="2_k3nch"]
 [ext_resource type="Script" path="res://Characters/default_cap.gd" id="2_vfxlh"]
 [ext_resource type="AnimationLibrary" uid="uid://b8jr2s8085i5h" path="res://model/model game/IDLE_Anim.glb" id="3_wat6i"]
+[ext_resource type="PackedScene" uid="uid://h358tj5skxfg" path="res://pause_menu.tscn" id="5_qdcgx"]
 
 [sub_resource type="Animation" id="Animation_yrxjo"]
 length = 0.001
@@ -71,7 +72,7 @@ jump_force = 50.0
 gravity = 100.0
 
 [node name="Armature" parent="." index="0"]
-transform = Transform3D(0.996185, 0.03043, -0.0817858, -0.0225927, 0.995211, 0.0950995, 0.084288, -0.0928889, 0.992103, -0.0280863, 0.00641281, 0.0827432)
+transform = Transform3D(0.996185, 0.03043, -0.081786, -0.0225927, 0.995211, 0.0950995, 0.0842881, -0.0928889, 0.992103, -0.0280863, 0.00641281, 0.0827432)
 
 [node name="Skeleton3D" parent="Armature" index="0"]
 bones/2/rotation = Quaternion(0.0332576, 0.00240221, 0.00614844, 0.999425)
@@ -167,5 +168,8 @@ current = true
 
 [node name="Timer" type="Timer" parent="." index="5"]
 autostart = true
+
+[node name="Pause Menu" parent="." index="6" instance=ExtResource("5_qdcgx")]
+visible = false
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

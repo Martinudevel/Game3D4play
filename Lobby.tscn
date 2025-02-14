@@ -1,0 +1,40 @@
+[gd_scene load_steps=2 format=3 uid="uid://6ot2k686wwkt"]
+
+[ext_resource type="Script" path="res://lobby.gd" id="1_nt5hp"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nt5hp")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 381.0
+offset_top = 239.0
+offset_right = 424.0
+offset_bottom = 270.0
+text = "host
+"
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 382.0
+offset_top = 298.0
+offset_right = 419.0
+offset_bottom = 329.0
+text = "join
+"
+
+[node name="LineEdit" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 247.0
+offset_top = 180.0
+offset_right = 582.0
+offset_bottom = 211.0
+
+[connection signal="pressed" from="Button" to="." method="_on_HostButton_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_JoinButton_pressed"]

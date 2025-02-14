@@ -27,8 +27,9 @@ func _on_resolutions_item_selected(index: int) -> void:
 			DisplayServer.window_set_size(Vector2i(1366,768))
 		2:
 			DisplayServer.window_set_size(Vector2i(1280,720))
-
-
+		3:
+			DisplayServer.window_set_size(Vector2i(1152,648))
+			
 func _on_fullscreen_windowed_item_selected(index: int) -> void:
 	match index:
 		0:

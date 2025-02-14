@@ -19,4 +19,4 @@ func _on_button_2_pressed() -> void:
 
 
 func _on_button_4_pressed() -> void:
-	get_tree().quit
+	get_tree().quit()

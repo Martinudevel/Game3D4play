@@ -1,10 +1,14 @@
 extends Node3D
 
+@onready var player_scene = preload("res://Characters/default_cap.gd")
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	get_parent().add_child(preload("res://Characters/Default Cap.tscn").instantiate())
+func _ready():
+	if multiplayer.is_server():
+		spawn_players()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func spawn_players():
+	for peer_id in multiplayer.get_peers():
+		var player = player_scene.instantiate()
+		player.name = str(peer_id)
+		player.set_multiplayer_authority(peer_id)
+		add_child(player)

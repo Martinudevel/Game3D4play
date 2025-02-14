@@ -26,34 +26,34 @@ text = "COOL GAME"
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 1679.0
-offset_top = 529.0
-offset_right = 1873.0
-offset_bottom = 592.0
+offset_left = 939.0
+offset_top = 243.0
+offset_right = 1133.0
+offset_bottom = 306.0
 text = "Play"
 
 [node name="Button2" type="Button" parent="."]
 layout_mode = 0
-offset_left = 1682.0
-offset_top = 612.0
-offset_right = 1876.0
-offset_bottom = 675.0
+offset_left = 940.0
+offset_top = 326.0
+offset_right = 1134.0
+offset_bottom = 389.0
 text = "Option"
 
 [node name="Button3" type="Button" parent="."]
 layout_mode = 0
-offset_left = 1683.0
-offset_top = 703.0
-offset_right = 1877.0
-offset_bottom = 766.0
+offset_left = 931.0
+offset_top = 415.0
+offset_right = 1125.0
+offset_bottom = 478.0
 text = "Extras"
 
 [node name="Button4" type="Button" parent="."]
 layout_mode = 0
-offset_left = 1683.0
-offset_top = 786.0
-offset_right = 1877.0
-offset_bottom = 849.0
+offset_left = 933.0
+offset_top = 504.0
+offset_right = 1127.0
+offset_bottom = 567.0
 text = "Quit"
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

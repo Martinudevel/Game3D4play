@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://cg6ulijso1243"]
+[gd_scene load_steps=2 format=3 uid="uid://bpqvonssnenx4"]
 
 [ext_resource type="Script" path="res://settings.gd" id="1_6n3kr"]
 
@@ -42,7 +42,7 @@ text = "Resolution"
 
 [node name="Resolutions" type="OptionButton" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-selected = 0
+selected = 2
 item_count = 3
 popup/item_0/text = "1920x1080"
 popup/item_1/text = "1366x768"
