@@ -7,53 +7,55 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -4.0
-offset_top = -3.0
-offset_right = -4.0
-offset_bottom = -3.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_yiriq")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
-layout_mode = 0
-offset_left = 481.0
-offset_top = 110.0
-offset_right = 727.0
-offset_bottom = 180.0
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -112.0
+offset_top = 148.0
+offset_right = 134.0
+offset_bottom = 218.0
+grow_horizontal = 2
 theme_override_font_sizes/normal_font_size = 35
 text = "COOL GAME"
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 964.0
-offset_top = 329.0
-offset_right = 1158.0
-offset_bottom = 392.0
+offset_left = 1679.0
+offset_top = 529.0
+offset_right = 1873.0
+offset_bottom = 592.0
 text = "Play"
 
 [node name="Button2" type="Button" parent="."]
 layout_mode = 0
-offset_left = 960.0
-offset_top = 407.0
-offset_right = 1154.0
-offset_bottom = 470.0
+offset_left = 1682.0
+offset_top = 612.0
+offset_right = 1876.0
+offset_bottom = 675.0
 text = "Option"
 
 [node name="Button3" type="Button" parent="."]
 layout_mode = 0
-offset_left = 960.0
-offset_top = 496.0
-offset_right = 1154.0
-offset_bottom = 559.0
+offset_left = 1683.0
+offset_top = 703.0
+offset_right = 1877.0
+offset_bottom = 766.0
 text = "Extras"
 
 [node name="Button4" type="Button" parent="."]
 layout_mode = 0
-offset_left = 960.0
-offset_top = 581.0
-offset_right = 1154.0
-offset_bottom = 644.0
+offset_left = 1683.0
+offset_top = 786.0
+offset_right = 1877.0
+offset_bottom = 849.0
 text = "Quit"
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Button4" to="." method="_on_button_4_pressed"]
