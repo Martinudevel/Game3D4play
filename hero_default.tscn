@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://s8qu4u6rcsmo"]
+[gd_scene load_steps=10 format=3 uid="uid://s8qu4u6rcsmo"]
 
 [ext_resource type="PackedScene" uid="uid://fl464gsfdjc5" path="res://model/model game/hero_default.glb" id="1_u4mb7"]
 [ext_resource type="Script" path="res://Characters/default_cap.gd" id="2_rhuwv"]
 [ext_resource type="AnimationLibrary" uid="uid://eam7f3xqeths" path="res://model/model game/Animation_library.glb" id="2_ru1gf"]
 [ext_resource type="AnimationLibrary" uid="uid://b8jr2s8085i5h" path="res://model/model game/IDLE_Anim.glb" id="3_a11sn"]
+[ext_resource type="PackedScene" uid="uid://h358tj5skxfg" path="res://pause_menu.tscn" id="5_ycnga"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_ov227"]
 height = 1.74431
@@ -293,5 +294,8 @@ autostart = true
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." index="6"]
 replication_config = SubResource("SceneReplicationConfig_rp7p7")
+
+[node name="Pause Menu" parent="." index="7" instance=ExtResource("5_ycnga")]
+visible = false
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

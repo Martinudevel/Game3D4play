@@ -1,7 +1,7 @@
 extends CharacterBody3D
 @onready var raycast =$RayCast3D
 var direction: Vector3 = Vector3.ZERO
-
+@onready var Multiplayer_syc=$MultiplayerSynchronizer
 # Camera settings
 @export var mouse_sensitivity: float = 0.1
 @export var camera_pitch_limit: float = 90.0
@@ -22,31 +22,39 @@ var new=true
 # Internal variables
 var yaw: float = 0.0
 var pitch: float = 0.0
+func  _enter_tree() -> void:
+	set_multiplayer_authority(str(name).to_int(),true)
+	print("My ID:", multiplayer.get_unique_id())
+	print("My authority:", get_multiplayer_authority())
+	
 func _ready():
-
+	Multiplayer_syc.root_path=NodePath(str(name))
+	print(2)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	self.transform.origin=Vector3(0,60.006,0)
 	self.scale=Vector3(10,10,10)
+	camera.current=true
 
 func _input(event):
+		if not is_multiplayer_authority(): return
 	# Handle mouse movement for camera rotation
-	if event is InputEventMouseMotion:
-		yaw -= event.relative.x * mouse_sensitivity
-		pitch -= event.relative.y * mouse_sensitivity
+		if event is InputEventMouseMotion:
+			yaw -= event.relative.x * mouse_sensitivity
+			pitch -= event.relative.y * mouse_sensitivity
 		
 		# Clamp the pitch to avoid flipping the camera
-		pitch= clamp(pitch, -camera_pitch_limit, camera_pitch_limit)
+			pitch= clamp(pitch, -camera_pitch_limit, camera_pitch_limit)
 		
 		# Apply rotation to the camera and player
 		
-		self.rotation_degrees.y = yaw
-		camera.rotation_degrees.x = pitch
+			self.rotation_degrees.y = yaw
+			camera.rotation_degrees.x = pitch
 		
 
 func _process(delta):
+	if not is_multiplayer_authority(): return
  # Reset direction
 	direction = Vector3.ZERO
-
 	# Get input for movement
 	if Input.is_action_pressed("ui_shift"):
 		speed=60
@@ -116,6 +124,8 @@ func _process(delta):
 
 
 func _unhandled_input(event):
+	if not is_multiplayer_authority(): return
+
 	# Allow the player to exit mouse capture
 	if event is InputEventKey and event.pressed:
 		if event.keycode == KEY_ESCAPE:
@@ -129,3 +139,8 @@ func _unhandled_input(event):
 
 func _on_timer_timeout() -> void:
 	new=false
+
+
+func _on_timer_2_timeout() -> void:
+	print("My ID:", multiplayer.get_unique_id())
+	print("My authority:", get_multiplayer_authority())

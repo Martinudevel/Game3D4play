@@ -66,18 +66,25 @@ _data = {
 height = 1.74431
 radius = 0.287625
 
-[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_ri12m"]
-properties/0/path = NodePath("AnimationPlayer:current_animation")
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_ey36p"]
+properties/0/path = NodePath(".:position")
 properties/0/spawn = true
 properties/0/replication_mode = 1
+properties/1/path = NodePath(".:rotation")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+properties/2/path = NodePath("AnimationPlayer:current_animation")
+properties/2/spawn = true
+properties/2/replication_mode = 1
 
 [node name="untitled" instance=ExtResource("1_km2lx")]
+collision_layer = 2
 script = ExtResource("2_vfxlh")
 jump_force = 50.0
 gravity = 100.0
 
 [node name="Armature" parent="." index="0"]
-transform = Transform3D(0.996185, 0.03043, -0.081786, -0.0225927, 0.995211, 0.0950994, 0.0842881, -0.0928888, 0.992103, -0.0280863, 0.00641281, 0.0827432)
+transform = Transform3D(0.996185, 0.03043, -0.081786, -0.0225927, 0.995211, 0.0950994, 0.0842882, -0.0928888, 0.992103, -0.0280863, 0.00641281, 0.0827432)
 
 [node name="Skeleton3D" parent="Armature" index="0"]
 bones/2/rotation = Quaternion(0.0332576, 0.00240221, 0.00614844, 0.999425)
@@ -178,6 +185,11 @@ autostart = true
 visible = false
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." index="7"]
-replication_config = SubResource("SceneReplicationConfig_ri12m")
+replication_config = SubResource("SceneReplicationConfig_ey36p")
+
+[node name="Timer2" type="Timer" parent="." index="8"]
+wait_time = 3.0
+autostart = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]

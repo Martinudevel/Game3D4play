@@ -1,5 +1,5 @@
 extends Node3D
-@onready var Player= $"../../spawner"
+@onready var Player= $"../../"
 @export var Cap_default=preload("res://Characters/Default Cap.tscn").instantiate()
 @export var type="Cap"
 @export var Hero_default=preload("res://hero_default.tscn").instantiate()
@@ -15,27 +15,25 @@ func _ready() -> void:
 
 func interact(name_play):
 	if type=="Cap":
-		var NewPlayer=Player.get_children(name_play)
-		for n in NewPlayer.get_children():
-			Player.remove_child(n)
-			n.queue_free() 
+		var NewPlayer=Player.get_node(NodePath(name_play))
+		NewPlayer.queue_free() 
 		Player.add_child(Cap_default)
+		Cap_default.name=name_play
 	if type=="Deco":
-		var NewPlayer=Player.get_children(name_play)
-		for n in NewPlayer.get_children():
-			Player.remove_child(n)
-			n.queue_free()
+		var NewPlayer=Player.get_node(NodePath(name_play))
+		NewPlayer.queue_free()
 		Player.add_child(Deco_default)
+		Deco_default.name=name_play
 	if type=="Plan":
-		var NewPlayer=Player.get_children(name_play)
-		for n in NewPlayer.get_children():
-			Player.remove_child(n)
-			n.queue_free()
+		var NewPlayer=Player.get_node(NodePath(name_play))
+		NewPlayer.queue_free()
 		Player.add_child(Plan_default)
+		Plan_default.name=name_play
+		
 	if type=="Hero":
-		var NewPlayer=Player.get_children(name_play)
-		for n in NewPlayer.get_children():
-			Player.remove_child(n)
-			n.queue_free()
+		var NewPlayer=Player.get_node(NodePath(name_play))
+		NewPlayer.queue_free()
 		Player.add_child(Hero_default)
+		Hero_default.name=name_play
+		
 	

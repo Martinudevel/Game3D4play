@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://dheu0g5g8w10q"]
+[gd_scene load_steps=13 format=3 uid="uid://dheu0g5g8w10q"]
 
 [ext_resource type="Script" path="res://sceenes/hub.gd" id="1_iwpo1"]
 [ext_resource type="PackedScene" uid="uid://yhyfywp8pcxb" path="res://nava.tscn" id="2_g3kgc"]
+[ext_resource type="PackedScene" uid="uid://dy0ghwvl1hrxj" path="res://Characters/Default Cap.tscn" id="2_vkqy5"]
 [ext_resource type="Shader" path="res://sceenes/hub.gdshader" id="3_umh6x"]
-[ext_resource type="PackedScene" uid="uid://ck0rhl7iufkds" path="res://sceenes/spawner.tscn" id="4_nepnd"]
 [ext_resource type="Script" path="res://sceenes/mirror.gd" id="4_wf6sk"]
+[ext_resource type="PackedScene" uid="uid://ci8y8qsd6jx31" path="res://spawner.tscn" id="5_7osqj"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_infxf"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -32,6 +33,7 @@ shader_parameter/refl_tx = SubResource("ViewportTexture_gajsv")
 
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_iwpo1")
+player_sceene = ExtResource("2_vkqy5")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_oh0xp")
@@ -53,4 +55,57 @@ current = true
 [node name="dummy_cam" type="Node3D" parent="mirror"]
 transform = Transform3D(0.1, 0, 0, 0, 0.01, 0, 0, 0, 0.005, 36.8224, -0.74576, 0.0269265)
 
-[node name="spawner" parent="." instance=ExtResource("4_nepnd")]
+[node name="spawner" parent="." instance=ExtResource("5_7osqj")]
+script = null
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 436.0
+offset_top = 208.0
+offset_right = -460.0
+offset_bottom = -149.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Multiplayer Menu"
+
+[node name="host" type="Button" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "host"
+
+[node name="join" type="Button" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "join"
+
+[node name="ip" type="LineEdit" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+placeholder_text = "Ip Adress"
+
+[node name="port" type="LineEdit" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+placeholder_text = "Port"
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("res://Characters/Default Cap.tscn")
+spawn_path = NodePath("..")
+
+[connection signal="pressed" from="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/host" to="." method="_on_host_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/join" to="." method="_on_join_button_pressed"]
